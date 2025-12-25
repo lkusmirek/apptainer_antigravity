@@ -10,12 +10,13 @@ From: ubuntu:24.04
     sudo gpg --dearmor --yes -o /etc/apt/keyrings/antigravity-repo-key.gpg
     echo "deb [signed-by=/etc/apt/keyrings/antigravity-repo-key.gpg] https://us-central1-apt.pkg.dev/projects/antigravity-auto-updater-dev/ antigravity-debian main" | \
     sudo tee /etc/apt/sources.list.d/antigravity.list > /dev/null
-    sudo apt update
-    sudo apt install -y antigravity
     # Add Google Chrome's GPG key  
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /etc/apt/trusted.gpg.d/google-chrome.gpg  
     # Add Chrome's repository to apt sources  
     echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list  
+    sudo apt update
+    sudo apt install -y antigravity
+    sudo apt install -y google-chrome-stable
 
 %environment
     export LC_ALL=C
